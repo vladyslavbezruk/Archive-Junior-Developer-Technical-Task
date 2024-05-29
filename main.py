@@ -38,8 +38,6 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         futures = []
         while not end_page:
-            print(end_page)
-
             cur_web_site = web_site + f'page/{cur_page}/'
             future = executor.submit(fetch_and_process_page, cur_web_site)
             futures.append(future)
